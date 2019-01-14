@@ -3,6 +3,7 @@
 
 Useful resources:
 https://pusher.com/tutorials/realtime-mysql-java
+https://github.com/shyiko/mysql-binlog-connector-java
 
 
 
