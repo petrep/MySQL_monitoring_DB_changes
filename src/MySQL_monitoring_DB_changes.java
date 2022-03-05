@@ -27,11 +27,11 @@ public class MySQL_monitoring_DB_changes {
 	public static void main(String[] args) throws IOException {
 		System.out.println("Testing starts..");
 
-		String db_name = "70x";
+		String db_name = "lpp43997c";
 		// *** MySQL section start ***
 		driver = "com.mysql.jdbc.Driver";
 		hostname = "localhost";
-		url = "jdbc:mysql://localhost:3306/shardc?useUnicode=true&characterEncoding=UTF-8&useFastDataParsing=false";
+		url = "jdbc:mysql://localhost:3306/lpp43997c?useUnicode=true&characterEncoding=UTF-8&useFastDataParsing=false";
 		userName = "root";
 		password = "password";
 		// *** MySQL section end ***
