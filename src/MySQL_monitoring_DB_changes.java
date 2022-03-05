@@ -27,11 +27,13 @@ public class MySQL_monitoring_DB_changes {
 	public static void main(String[] args) throws IOException {
 		System.out.println("Testing starts..");
 
-		String db_name = "lpp43997c";
+//		String db_name = "70x";
+//		String db_name = "pszichoweb";
+		String db_name = "lpp42115m";
 		// *** MySQL section start ***
 		driver = "com.mysql.jdbc.Driver";
 		hostname = "localhost";
-		url = "jdbc:mysql://localhost:3306/lpp43997c?useUnicode=true&characterEncoding=UTF-8&useFastDataParsing=false";
+//		url = "jdbc:mysql://localhost:3306/master4?useUnicode=true&characterEncoding=UTF-8&useFastDataParsing=false";
 		userName = "root";
 		password = "password";
 		// *** MySQL section end ***
@@ -48,15 +50,18 @@ public class MySQL_monitoring_DB_changes {
 				tableMap.put(tableData.getTable(), tableData.getTableId());
 				System.out.println("General information about a table was requested: " + tableData.toString());
 			} else if (data instanceof UpdateRowsEventData) {
+				// THIS is the important part - however, this only returns strings and
+				// I could not find out how to extract the arrays and display their values
 				UpdateRowsEventData eventData = (UpdateRowsEventData) data;
 				TableMapEventMetadata my = new TableMapEventMetadata();
 
 				long updatedTableName = eventData.getTableId();
 
 				for (Entry<Serializable[], Serializable[]> row : eventData.getRows()) {
-					{
-						System.out.println("The following db table row was updated: " + getProductMap(db_name, row.getValue()));
-					}
+					
+						Map<String, String> updatedData = getProductMap(db_name, row.getValue());
+						System.out.println("The following db table row was updated: " + updatedData.toString());
+					
 				}
 			}
 
